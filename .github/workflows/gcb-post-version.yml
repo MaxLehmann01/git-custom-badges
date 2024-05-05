@@ -30,7 +30,7 @@ jobs:
       - name: Send Package Info to API
         run: |
           curl -X POST \
+            -H "Content-Type: application/json" \
             -H "project-push-token: ${{ secrets.GCB_PUSH_TOKEN_PROJECT }}" \
-            -d "name=${{ steps.extract.outputs.name }}" \
-            -d "version=${{ steps.extract.outputs.version }}" \
+            -d '{"name": "${{ steps.extract.outputs.name }}", "version": "${{ steps.extract.outputs.version }}"}' \
             https://gcb.maxlehmann.dev/projects
