@@ -9,6 +9,7 @@ import utilLogger from "./logger.js";
 
 /* Routers */
 import routerIndex from "../routers/index/index.js";
+import routerProjects from "../routers/projects/index.js";
 import routerBadges from "../routers/badges/index.js";
 
 /* Non-Exports */
@@ -22,6 +23,7 @@ const useMiddleware = () => {
 
 const useRouters = () => {
   router.use('/', routerIndex);
+  router.use('/projects', routerProjects);
   router.use('/badges', routerBadges);
 }
 
