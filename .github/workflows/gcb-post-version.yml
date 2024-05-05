@@ -23,7 +23,9 @@ jobs:
 
       - name: Extract package.json fields
         id: extract
-        run: echo "::set-output name=name::$(node -e "console.log(require('./package.json').name)") && echo "::set-output name=version::$(node -e "console.log(require('./package.json').version)")"
+        run: |
+          echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_ENV
+          echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
       - name: Send Package Info to API
         run: |
