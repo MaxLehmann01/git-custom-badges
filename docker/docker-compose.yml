@@ -2,8 +2,8 @@ version: '3'
 
 services:
   portfolio-backend:
-    image: maxlehmann01/git-custom-badges:production
-    container_name: production.git-custom-badges
+    image: maxlehmann01/git-custom-badges:latest
+    container_name: git-custom-badges
     ports:
       - "3010:3000"
     restart: always

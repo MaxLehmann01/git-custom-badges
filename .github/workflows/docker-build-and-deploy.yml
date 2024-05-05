@@ -24,7 +24,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_REGISTRY_USER }}/git-custom-badges:production
+          tags: ${{ secrets.DOCKER_REGISTRY_USER }}/git-custom-badges:latest
     
   deploy-image:
     needs: build-image
