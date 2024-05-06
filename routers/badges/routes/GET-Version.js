@@ -17,6 +17,10 @@ export default async (req, res, next) => {
     else resData.data = generateBadge(custom_key || 'version', project.version, 'info');
     
     res.setHeader('Content-Type', 'image/svg+xml');
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    
     resData.httpStatus = 200;
     res.send(resData.data)
   } catch (err) {
