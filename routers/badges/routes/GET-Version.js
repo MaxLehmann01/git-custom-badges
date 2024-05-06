@@ -17,9 +17,7 @@ export default async (req, res, next) => {
     else resData.data = generateBadge(custom_key || 'version', project.version, 'info');
     
     res.setHeader('Content-Type', 'image/svg+xml');
-    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-    res.setHeader('Pragma', 'no-cache');
-    res.setHeader('Expires', '0');
+    res.setHeader('Cache-Control', 'max-age=30, private');
     
     resData.httpStatus = 200;
     res.send(resData.data)
