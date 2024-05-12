@@ -17,14 +17,12 @@ export default async (req, res, next) => {
 
       if(response.status === 200) resData.data = generateBadge(custom_key || 'healthcheck', 'healthy', 'success');
       else throw new Error('healthcheck failed');
+    // eslint-disable-next-line no-unused-vars
     } catch (err) {
       resData.data = generateBadge(custom_key || 'healthcheck', 'unhealthy', 'error');
     }
     
     res.setHeader('Content-Type', 'image/svg+xml');
-    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-    res.setHeader('Pragma', 'no-cache');
-    res.setHeader('Expires', '0');
     
     resData.httpStatus = 200;
     res.send(resData.data)

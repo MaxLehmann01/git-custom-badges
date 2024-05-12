@@ -10,6 +10,7 @@ dotenv.config({ path: "./.env.test" });
 import utilServer from "../utils/server.js";
 
 /* Schemas */
+import Project from "../schemas/Project.js";
 
 /* Default-Export */
 export default async () => {
@@ -27,12 +28,13 @@ export default async () => {
   utilServer.init();
 
   /* Creating MongoDB Demo Objects */
-  /* ... */
+  const project = new Project({ name: 'jest-demo-project', version: '1.0.0', timestamp: new Date() })
+  await project.save();
 
   global.__SERVER__ = utilServer.server;
   global.__MONGOOSE__ = mongoose;
   global.__MONGO_SERVER__ = mongoServer;
   global.__MONGO_DEMO_OBJECTS = {
-    
+    project
   }
 }
