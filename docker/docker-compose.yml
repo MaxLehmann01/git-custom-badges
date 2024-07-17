@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  portfolio-backend:
+  git-custom-badges:
     image: docker.5vv5404h4uiv.com/git-custom-badges:latest
     container_name: git-custom-badges
     ports:
