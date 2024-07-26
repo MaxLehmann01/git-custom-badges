@@ -5,10 +5,16 @@ services:
     image: docker.5vv5404h4uiv.com/git-custom-badges:latest
     container_name: git-custom-badges
     ports:
-      - "3200:3000"
+      - "15010:3000"
     restart: always
     volumes:
       - /root/git-custom-badges/.env:/usr/src/app/.env
       - /root/git-custom-badges/logs/:/usr/src/app/logs
     environment:
       - TZ=Europe/Berlin
+    networks:
+      - mongo
+
+networks:
+  mongo:
+    external: true
